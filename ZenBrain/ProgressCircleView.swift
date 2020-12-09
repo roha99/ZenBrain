@@ -33,14 +33,14 @@ struct ProgressCircleView: View {
             
             Circle()
                 .trim(from: 0.0, to: progress())
-                .stroke(color(), style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+                .stroke(Color.accentColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                 .rotationEffect(.degrees(270))
-                .animation(.linear)
+                .animation(.easeInOut)
             
             Text("\(actual_hours):\(actual_minutes):\(actual_seconds)")
                 .font(.title)
                 .bold()
-                .foregroundColor(color())
+                .foregroundColor(.primary)
                 .rotationEffect(self.angle)
                 .animation(.spring())
             

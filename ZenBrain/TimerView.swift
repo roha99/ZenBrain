@@ -11,20 +11,17 @@ import AVFoundation
 struct TimerView: View {
     
     @State var progressAngle = Angle(degrees: 0)
-    @State var settingsAngle = Angle(degrees: 0)
-    
-    @State var active = false
     @State var settings = false
     
-    @AppStorage("goal_hours") var goal_hours: Int = 0
-    @AppStorage("goal_minutes") var goal_minutes: Int = 0
-    @AppStorage("goal_seconds") var goal_seconds: Int = 10
+    @Binding var active: Bool
     
-    @State var actual_hours: Int = 0
-    @State var actual_minutes: Int = 0
-    @State var actual_seconds: Int = 0
+    @Binding var goal_hours: Int
+    @Binding var goal_minutes: Int
+    @Binding var goal_seconds: Int
     
-    let timer = Timer.publish(every: 1, tolerance: 0, on: .main, in: .common).autoconnect()
+    @Binding var actual_hours: Int
+    @Binding var actual_minutes: Int
+    @Binding var actual_seconds: Int
     
     var body: some View {
         
@@ -60,43 +57,36 @@ struct TimerView: View {
                     if self.active {
                         self.progressAngle.degrees -= 360
                         AudioServicesPlaySystemSound(SystemSoundID(1114))
+                        self.active = false
                         #if os(iOS)
                         UIApplication.shared.isIdleTimerDisabled = false
                         #endif
                     } else {
                         self.progressAngle.degrees += 360
                         AudioServicesPlaySystemSound(SystemSoundID(1113))
+                        self.active = true
                         #if os(iOS)
                         UIApplication.shared.isIdleTimerDisabled = true
                         #endif
                     }
-                    self.active.toggle()
                 }
                 
                 Spacer()
                 
-                Image(systemName: "gearshape")
-                    .font(.largeTitle)
-                    .foregroundColor(.secondary)
-                    .opacity(0.8)
-                    .rotationEffect(self.settingsAngle)
-                    .animation(.spring())
-                    .onTapGesture {
-                        if Bool.random() {
-                            self.settingsAngle.degrees -= 360
-                        } else {
-                            self.settingsAngle.degrees += 360
-                        }
-                        self.settings.toggle()
-                    }
-                    .sheet(isPresented: self.$settings) {
-                        SettingsView(
-                            goal_hours: self.$goal_hours,
-                            goal_minutes: self.$goal_minutes,
-                            goal_seconds: self.$goal_seconds,
-                            settings: self.$settings)
-                        
-                    }
+                Button(action: { self.settings = true }) {
+                    Image(systemName: "gearshape")
+                        .font(.largeTitle)
+                        .foregroundColor(.secondary)
+                        .opacity(0.8)
+                }
+                .sheet(isPresented: self.$settings) {
+                    SettingsView(
+                        goal_hours: self.$goal_hours,
+                        goal_minutes: self.$goal_minutes,
+                        goal_seconds: self.$goal_seconds,
+                        settings: self.$settings)
+                    
+                }
                 
                 Spacer()
                 
@@ -105,46 +95,7 @@ struct TimerView: View {
             Spacer()
             
         }
-        .onReceive(timer) { _ in
-            
-            if active {
-                
-                self.actual_seconds += 1
-                
-                if self.actual_seconds == 60 {
-                    
-                    self.actual_seconds = 0
-                    self.actual_minutes += 1
-                    
-                }
-                
-                if self.actual_minutes == 60 {
-                    
-                    self.actual_minutes = 0
-                    self.actual_hours += 1
-                    
-                }
-                
-            }
-            
-            if self.goal_hours == 0 && self.goal_minutes == 0 && self.goal_seconds == 0 {
-                self.goal_seconds = 1
-            }
-            
-            if self.actual_hours == self.goal_hours && self.actual_minutes == self.goal_minutes && self.actual_seconds == self.goal_seconds {
-                
-                AudioServicesPlaySystemSound(SystemSoundID(1310))
-                
-            }
-            
-        }
         
     }
     
-}
-
-struct TimerViewPreviews: PreviewProvider {
-    static var previews: some View {
-        TimerView()
-    }
 }

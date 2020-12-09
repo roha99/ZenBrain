@@ -75,15 +75,21 @@ struct SettingsView: View {
                 
             }
             
-            Section(header: Text("let me know what you think")) {
+            Section(header: Text("get in touch")) {
                 
-                Link("@r0b3rth4ns3n", destination: URL(string: "https://twitter.com/r0b3rth4ns3n")!)
+                Text("Hello Friend. My name is Rob. I created ZenBrain because I wanted a simple meditation timer for myself. If you have any thoughts on how to improve the app please do not hesitate to contact me.")
+                    .multilineTextAlignment(.center)
                 
+                HStack {
+                    Spacer()
+                    Link("@r0b3rth4ns3n", destination: URL(string: "https://twitter.com/r0b3rth4ns3n")!)
+                    Spacer()
+                }
+             
             }
             
         }
-        .navigationTitle("Settings")
-        .navigationBarItems(trailing: Button(action: { self.settings = false }, label: { Image(systemName: "umbrella").font(.title) }))
+        .navigationTitle("ZenBrain")
             
         }
         
