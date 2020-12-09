@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		D40025BD258146CF000FD2B3 /* ZenBrainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40025BC258146CF000FD2B3 /* ZenBrainApp.swift */; };
-		D40025BF258146CF000FD2B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40025BE258146CF000FD2B3 /* ContentView.swift */; };
 		D40025C1258146D0000FD2B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D40025C0258146D0000FD2B3 /* Assets.xcassets */; };
-		D40025C4258146D0000FD2B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D40025C3258146D0000FD2B3 /* Preview Assets.xcassets */; };
+		D40025CF25814897000FD2B3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40025CC25814897000FD2B3 /* SettingsView.swift */; };
+		D40025D025814897000FD2B3 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40025CD25814897000FD2B3 /* TimerView.swift */; };
+		D40025D125814897000FD2B3 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40025CE25814897000FD2B3 /* ProgressCircleView.swift */; };
+		D40025D6258149E9000FD2B3 /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = D40025D5258149E9000FD2B3 /* Preview Content */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D40025B9258146CF000FD2B3 /* ZenBrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenBrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40025BC258146CF000FD2B3 /* ZenBrainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenBrainApp.swift; sourceTree = "<group>"; };
-		D40025BE258146CF000FD2B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D40025C0258146D0000FD2B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D40025C3258146D0000FD2B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D40025C5258146D0000FD2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D40025CC25814897000FD2B3 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D40025CD25814897000FD2B3 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		D40025CE25814897000FD2B3 /* ProgressCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
+		D40025D5258149E9000FD2B3 /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,20 +57,14 @@
 			isa = PBXGroup;
 			children = (
 				D40025BC258146CF000FD2B3 /* ZenBrainApp.swift */,
-				D40025BE258146CF000FD2B3 /* ContentView.swift */,
+				D40025CD25814897000FD2B3 /* TimerView.swift */,
+				D40025CE25814897000FD2B3 /* ProgressCircleView.swift */,
+				D40025CC25814897000FD2B3 /* SettingsView.swift */,
 				D40025C0258146D0000FD2B3 /* Assets.xcassets */,
 				D40025C5258146D0000FD2B3 /* Info.plist */,
-				D40025C2258146D0000FD2B3 /* Preview Content */,
+				D40025D5258149E9000FD2B3 /* Preview Content */,
 			);
 			path = ZenBrain;
-			sourceTree = "<group>";
-		};
-		D40025C2258146D0000FD2B3 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				D40025C3258146D0000FD2B3 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +124,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D40025C4258146D0000FD2B3 /* Preview Assets.xcassets in Resources */,
+				D40025D6258149E9000FD2B3 /* Preview Content in Resources */,
 				D40025C1258146D0000FD2B3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,7 +136,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D40025BF258146CF000FD2B3 /* ContentView.swift in Sources */,
+				D40025CF25814897000FD2B3 /* SettingsView.swift in Sources */,
+				D40025D125814897000FD2B3 /* ProgressCircleView.swift in Sources */,
+				D40025D025814897000FD2B3 /* TimerView.swift in Sources */,
 				D40025BD258146CF000FD2B3 /* ZenBrainApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

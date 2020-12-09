@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct ZenBrainApp: App {
+    
     var body: some Scene {
+        
         WindowGroup {
-            ContentView()
+            
+            TimerView()
+            
         }
+        
     }
+    
 }
