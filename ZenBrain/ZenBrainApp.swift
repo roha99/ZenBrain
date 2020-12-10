@@ -83,6 +83,12 @@ struct ZenBrainApp: App {
                     
                 }
                 
+                if self.goal_hours == 0 && self.goal_minutes == 0 && self.goal_seconds == 0 {
+                    
+                    self.goal_seconds = 1
+                    
+                }
+                
             }
             
         }

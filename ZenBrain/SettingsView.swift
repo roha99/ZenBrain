@@ -75,14 +75,14 @@ struct SettingsView: View {
                 
             }
             
-            Section(header: Text("get in touch")) {
+            Section(header: Text("get involved")) {
                 
-                Text("Hello Friend. My name is Rob. I created ZenBrain because I wanted a simple meditation timer for myself. If you have any thoughts on how to improve the app please do not hesitate to contact me.")
+                Text("Hello Friend. My name is Rob. I created ZenBrain because I wanted a simple meditation timer for myself. If you have any thoughts on how to improve the app please do not hesitate to start a discussion on GitHub.")
                     .multilineTextAlignment(.center)
                 
                 HStack {
                     Spacer()
-                    Link("@r0b3rth4ns3n", destination: URL(string: "https://twitter.com/r0b3rth4ns3n")!)
+                    Link("github.com/r0b3rth4ns3n/ZenBrain", destination: URL(string: "https://github.com/r0b3rth4ns3n/ZenBrain")!)
                     Spacer()
                 }
              
